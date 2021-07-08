@@ -1,0 +1,13 @@
+---
+
+- include: job.yml
+  when:
+    - awx_mgmt_jobs is defined
+    - awx_mgmt_jobs != ''
+    - awx_mgmt_jobs != []
+
+- include: workflow.yml
+  when:
+    - awx_mgmt_workflows is defined
+    - awx_mgmt_workflows != ''
+    - awx_mgmt_workflows != []

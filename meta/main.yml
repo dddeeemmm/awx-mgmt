@@ -1,0 +1,15 @@
+galaxy_info:
+  author: Dmitrij Petrov
+  license: MIT
+  min_ansible_version: 2.1
+
+  platforms:
+   - name: Fedora
+     versions:
+      - 32
+
+  galaxy_tags:
+    - awx
+    - tower
+
+dependencies: []

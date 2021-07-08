@@ -1,0 +1,26 @@
+---
+
+- name: tower job template
+  tower_job_template:
+    state: "{{ item.state | d ('present') }}"
+    name: '{{ item.name }}'
+    playbook: '{{ item.playbook }}'
+    inventory: '{{ item.inventory | d (awx_mgmt_template_inventory) }}'
+    job_type: "{{ item.job_type | d ('run') }}"
+    organization: "{{ item.organization | d (awx_mgmt_template_organiztion) }}"
+    project: "{{ item.organization | d (awx_mgmt_template_project) }}"
+    credentials: "{{ item.credentials | d (awx_mgmt_template_credentials) }}"
+    extra_vars: "{{ item.extra_vars | d (awx_mgmt_template_extra_vars) }}"
+    job_tags: "{{ item.job_tags | d (awx_mgmt_template_job_tags) }}"
+    limit: "{{ item.limit | d (awx_mgmt_template_limit) }}"
+    skip_tags: "{{ item.skip_tags | d (awx_mgmt_template_skip_tags) }}"
+    notification_templates_error: "{{ item.notification_templates_error | d (awx_mgmt_template_notification_templates_error) }}"
+    notification_templates_started: "{{ item.notification_templates_started | d (awx_mgmt_template_notification_templates_started) }}"
+    notification_templates_success: "{{ item.notification_templates_success | d (awx_mgmt_template_notification_templates_success) }}"
+    ask_credential_on_launch: "{{ item.ask_credential_on_launch | d (awx_mgmt_template_ask_credential_on_launch) }}"
+    ask_variables_on_launch: "{{ item.ask_variables_on_launch | d (awx_mgmt_template_ask_variables_on_launch) }}"
+    ask_diff_mode_on_launch: "{{ item.ask_diff_mode_on_launch | d (awx_mgmt_template_ask_diff_mode_on_launch) }}"
+    tower_host: "{{ awx_mgmt_tower_host }}"
+    tower_username: '{{ awx_mgmt_tower_username }}'
+    tower_password: '{{ awx_mgmt_tower_password }}'
+  loop: '{{ awx_mgmt_jobs }}'

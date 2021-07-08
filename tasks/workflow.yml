@@ -1,0 +1,11 @@
+---
+
+#- name: tower workflow template
+#  tower_workflow_template:
+#    state: "{{ item.state | d ('present') }}"
+#    name: '{{ item.name }}'
+#    extra_vars: '{{ item.extra_vars | d (awx_mgmt_template_extra_vars) }}'
+#    inventory: '{{ item.inventory | d (awx_mgmt_template_inventory) }}'
+#    ask_extra_vars: '{{ item.ask_extra_vars | d (awx_mgmt_template_ask_extra_vars) }}'
+#    ask_inventory: '{{ item.ask_inventory | d (awx_mgmt_template_ask_inventory) }}'
+#  loop: '{{ awx_mgmt_workflows }}'
